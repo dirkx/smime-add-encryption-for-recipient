@@ -1,3 +1,16 @@
+Compile with
+
+<code>
+Linux:
+	gcc -O3 -o smime-add-recipient main.c -lcrypto
+
+OSX:
+	gcc -std=c99 -O3 -o smime-add-recipient smime-add-encrypt/main.c -lcrypto -L/opt/local/lib -I/opt/local/include 
+
+XCode:
+	xcodebuild
+</code>
+
 <pre>
 
 smime-add-encrypt(1)      BSD General Commands Manual     smime-add-encrypt(1)
