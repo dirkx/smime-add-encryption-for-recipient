@@ -2,15 +2,15 @@
 
 smime-add-encrypt(1)      BSD General Commands Manual     smime-add-encrypt(1)
 
-NNAAMMEE
-     ssmmiimmee--aadddd--eennccrryypptt,, -- Add receipients to an encrypted s/mime message.
+NAME
+     smime-add-encrypt, -- Add receipients to an encrypted s/mime message.
 
-SSYYNNOOPPSSIISS
-     ssmmiimmee--aadddd--eennccrryypptt,, [--vvhh] [--oo _o_u_t_f_i_l_e] [--pp _k_e_y_f_i_l_e] [--PP _c_e_r_t_f_i_l_e]
-                        [--cc _c_e_r_t_s_f_i_l_e] [_i_n_f_i_l_e]
+SYNOPSIS
+     smime-add-encrypt, [-vh] [-o outfile] [-p keyfile] [-P certfile]
+                        [-c certsfile] [infile]
 
-DDEESSCCRRIIPPTTIIOONN
-     The ssmmiimmee--aadddd--eennccrryypptt,, utility complements the openssl(1) suite, it
+DESCRIPTION
+     The smime-add-encrypt, utility complements the openssl(1) suite, it
      allows for the adding of one or more receipients to an encrypted s/mime
      message. In order to do so it will need the decryption key (i.e. the pri-
      vate key) of at least one of the existing recipients and one or more cer-
@@ -22,36 +22,36 @@ DDEESSCCRRIIPPTTIIOONN
 
      A list of flags and their descriptions:
 
-     --oo _o_u_t_f_i_l_e
+     -o outfile
               The resulting S/MIME file; if none specified; output is send to
               stdout.
 
-     --pp _k_e_y_f_i_l_e
+     -p keyfile
               The private key of an existing recipient in PEM format.
 
-     --PP _c_e_r_t_-_f_i_l_e
+     -P cert-file
               An X509 certificate (PEM format) of an existing recipient. When
               not present we try to decode the entry for each recipient and
               hope that the first match was indeed the right one.
 
-     --CC _c_e_r_t_s_-_f_i_l_e
+     -C certs-file
               A file containing one or more X509 certificate (PEM) format of
               the recipients to be added. Can be repeated.
 
-     --hh       Help, Provides a short synopsis of the flags and then exists.
+     -h       Help, Provides a short synopsis of the flags and then exists.
 
-     --vv       Provide verbose information on standard error.
+     -v       Provide verbose information on standard error.
 
-     _i_n_f_i_l_e   The S/MIME file to add recipients too. If not specified stdin is
+     infile   The S/MIME file to add recipients too. If not specified stdin is
               assumed. The format can be either raw PKCS7 or PEM.
 
-SSEEEE AALLSSOO
+SEE ALSO
      openssl(1), smime(1),
 
-BBUUGGSS
+BUGS
      Does not accept the full width of openssl's formats and engine settings.
 
-HHIISSTTOORRYY
+HISTORY
      Written by Dirk-Willem van Gulik, 2023 - Apache Software Foundation
      License 2.0 or newer.
 
