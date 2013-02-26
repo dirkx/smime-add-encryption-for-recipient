@@ -181,6 +181,7 @@ char *ASN1_INTEGER_oneline(ASN1_INTEGER * ai, char * buff, size_t len) {
     char * str = NULL;
     if (bn) str = BN_bn2hex(bn);
     strncpy(buff, str ? str : "<invalid-num>", len-1);
+    buff[len-1] = '\0';
     OPENSSL_free(str);
     BN_free(bn);
     return buff;
