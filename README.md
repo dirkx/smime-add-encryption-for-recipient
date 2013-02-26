@@ -1,15 +1,18 @@
 Compile with
 
-<code>
-Linux:
+Linux: <code>
 	gcc -O3 -o smime-add-recipient main.c -lcrypto
+</code>
 
-OSX:
+OSX:<code>
 	gcc -std=c99 -O3 -o smime-add-recipient smime-add-encrypt/main.c -lcrypto -L/opt/local/lib -I/opt/local/include 
+</code>
 
-XCode:
+XCode:<code>
 	xcodebuild
 </code>
+
+And move the file and/or the manpage to the annointed locations.
 
 <pre>
 
