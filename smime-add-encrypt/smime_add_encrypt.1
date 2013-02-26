@@ -1,0 +1,61 @@
+
+.Dd 26/02/2013               \" DATE
+.Dt smime-add-encrypt 1      \" Program name and manual section number 
+.Os Darwin
+.Sh NAME                 \" Section Header - required - don't modify 
+.Nm smime-add-encrypt,
+.Nd Add receipients to an encrypted s/mime message.
+.Sh SYNOPSIS             \" Section Header - required - don't modify
+.Nm
+.Op Fl vh              \" [-abcd]
+.Op Fl o Ar outfile         \" [-a path]
+.Op Fl p Ar keyfile         \" [-a path]
+.Op Fl P Ar certfile         \" [-a path]
+.Op Fl c Ar certsfile         \" [-a path]
+.Op Ar infile              \" [file]
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+The
+.Nm
+utility complements the 
+.Xr openssl 1
+suite, it allows for the adding of one or more receipients to an
+encrypted s/mime message. In order to do so it will need the decryption
+key (i.e. the private key) of at least one of the existing recipients
+and one or more certificate of the recipients to be added.
+.Pp                      \" Inserts a space
+Using the private key of a recipient it will decrypt the symmetric
+message encryption key; re-encrypt it against the public keys of
+the new recipients; and then add the right information to the s/mime
+structure.
+.Pp
+A list of flags and their descriptions:
+.Bl -tag -width -indent  \" Differs from above in tag removed
+.It Fl o Ar outfile
+The resulting S/MIME file; if none specified; output is send to stdout.
+.It Fl p Ar keyfile
+The private key of an existing recipient in PEM format.
+.It Fl P Ar cert-file
+An X509 certificate (PEM format) of an existing recipient. When not present
+we try to decode the entry for each recipient and hope that the first match
+was indeed the right one.
+.It Fl C Ar certs-file
+A file containing one or more X509 certificate (PEM) format of the recipients
+to be added. Can be repeated.
+.It Fl h                 \"-a flag as a list item
+Help, Provides a short synopsis of the flags and then exists.
+.It Fl v                 \"-a flag as a list item
+Provide verbose information on standard error.
+.It Ar infile
+The S/MIME file to add recipients too. If not specified
+stdin is assumed. The format can be either raw PKCS7 or PEM.
+.El                      \" Ends the list
+.Pp
+.Sh SEE ALSO
+.\" List links in ascending order by section, alphabetically within a section.
+.\" Please do not reference files that do not exist without filing a bug report
+.Xr openssl 1 ,
+.Xr smime 1 ,
+.Sh BUGS              \" Document known, unremedied bugs
+Does not accept the full width of openssl's formats and engine settings.
+.Sh HISTORY           \" Document history if command behaves in a unique manner
+Written by Dirk-Willem van Gulik, 2023 - Apache Software Foundation License 2.0 or newer.
