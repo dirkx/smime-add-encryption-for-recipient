@@ -1,4 +1,4 @@
-
+<pre>
 
 smime-add-encrypt(1)      BSD General Commands Manual     smime-add-encrypt(1)
 
@@ -56,3 +56,5 @@ HISTORY
      License 2.0 or newer.
 
 Darwin                         February 26, 2013                        Darwin
+
+</pre>
